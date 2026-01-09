@@ -8,9 +8,9 @@ const Header = () => {
     { href: "/about", label: "About Us" },
     { href: "/departments", label: "Departments" },
     { href: "/services", label: "Services" },
-    { href: "/doctors", label: "Doctors" },
     { href: "/gallery", label: "Gallery" },
     { href: "/inquiry", label: "Inquiry" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (

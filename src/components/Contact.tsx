@@ -119,6 +119,20 @@ const Contact = () => {
               </a>
             </div>
           </div>
+
+          {/* Map Section */}
+          <div className="mt-12 rounded-2xl overflow-hidden shadow-medical border border-border animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3718.989871689094!2d86.75952791!3d21.23225022!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1c7abfabf844c3%3A0x344d63cf0c9e31fe!2sAnantapur%20Hospital%20(CHC)!5e0!3m2!1sen!2sin!4v1767970043960!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Anantapur Hospital Location"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
