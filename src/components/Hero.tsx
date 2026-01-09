@@ -11,15 +11,15 @@ const Hero = () => {
               <Heart className="w-4 h-4" />
               <span>Your Health, Our Priority</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-tight mb-6">
               Quality Healthcare
               <span className="block text-gradient-medical">For Everyone</span>
             </h1>
-            
+
             <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-              Anantapur Hospital provides comprehensive medical services with 
-              compassion and excellence. Our dedicated team is committed to 
+              Anantapur Hospital provides comprehensive medical services with
+              compassion and excellence. Our dedicated team is committed to
               delivering the best healthcare experience.
             </p>
 
@@ -39,32 +39,57 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right content - Stats */}
-          <div className="grid grid-cols-2 gap-4 lg:gap-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <div className="medical-card-highlight p-6 text-center hover-lift">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Users className="w-7 h-7 text-primary" />
+          {/* Right content - Stats & Logos */}
+          <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            {/* Logos Section */}
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-medical-lg border border-primary/10 hover-lift text-center">
+              <p className="text-sm font-semibold text-primary mb-6 uppercase tracking-wider">Supported By</p>
+              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                <img
+                  src="/images/nhm-logo.png"
+                  alt="National Health Mission"
+                  className="h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                />
+                <div className="h-16 w-px bg-border hidden md:block"></div>
+                <img
+                  src="/images/odisha-logo.png"
+                  alt="Government of Odisha"
+                  className="h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <h3 className="text-3xl font-heading font-bold text-foreground mb-2">26+</h3>
-              <p className="text-muted-foreground text-sm">Dedicated Staff</p>
             </div>
 
-            <div className="medical-card-highlight p-6 text-center hover-lift">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-7 h-7 text-accent" />
-              </div>
-              <h3 className="text-3xl font-heading font-bold text-foreground mb-2">9</h3>
-              <p className="text-muted-foreground text-sm">Departments</p>
-            </div>
+            {/* Hero Image Section */}
+            <div className="relative mx-auto max-w-md lg:max-w-full">
+              <div className="relative rounded-2xl overflow-hidden shadow-medical-lg hover-lift group">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+                <img
+                  src="/images/hero-main.jpeg"
+                  alt="Anantapur Hospital Building"
+                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                />
 
-            <div className="col-span-2 medical-card-highlight p-6 hover-lift">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Heart className="w-7 h-7 text-primary" />
+                {/* Floating Stats - Bottom Left */}
+                <div className="absolute bottom-4 left-4 z-20">
+                  <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20 flex items-center gap-3 animate-fade-in-up">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Heart className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wider">Emergency</p>
+                      <p className="text-sm font-bold text-foreground">24/7 Care Available</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-heading font-bold text-foreground">24/7 Emergency Care</h3>
-                  <p className="text-muted-foreground text-sm">Round-the-clock medical assistance</p>
+
+                {/* Floating Stats - Top Right - Optional decorative badge */}
+                <div className="absolute top-4 right-4 z-20">
+                  <div className="bg-accent/90 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-lg border border-white/20 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                    <div className="flex items-center gap-2">
+                      <Shield className="w-4 h-4 text-white" />
+                      <span className="text-xs font-bold text-white">Trusted Care</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

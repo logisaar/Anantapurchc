@@ -5,10 +5,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#departments", label: "Departments" },
-    { href: "#staff", label: "Our Team" },
-    { href: "#contact", label: "Contact" },
+    { href: "/about", label: "About Us" },
+    { href: "/departments", label: "Departments" },
+    { href: "/services", label: "Services" },
+    { href: "/doctors", label: "Doctors" },
+    { href: "/gallery", label: "Gallery" },
+    { href: "/inquiry", label: "Inquiry" },
   ];
 
   return (
@@ -17,15 +19,15 @@ const Header = () => {
       <div className="bg-primary text-primary-foreground">
         <div className="container-medical py-2 flex flex-wrap justify-center md:justify-between items-center gap-2 text-sm">
           <div className="flex items-center gap-4 md:gap-6">
-            <a 
-              href="tel:06788222894" 
+            <a
+              href="tel:06788222894"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
               <Phone className="w-4 h-4" />
               <span>06788-222894</span>
             </a>
-            <a 
-              href="mailto:anantapurchc@gmail.com" 
+            <a
+              href="mailto:anantapurchc@gmail.com"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
               <Mail className="w-4 h-4" />
