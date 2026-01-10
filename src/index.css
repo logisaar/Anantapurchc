@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 210 40% 99%;
+    --background: 0 0% 100%;
     --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
@@ -18,10 +18,10 @@
     --primary: 210 85% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 30% 96%;
+    --secondary: 0 0% 100%;
     --secondary-foreground: 215 25% 25%;
 
-    --muted: 210 20% 96%;
+    --muted: 0 0% 100%;
     --muted-foreground: 215 15% 45%;
 
     --accent: 185 70% 42%;
@@ -38,12 +38,12 @@
 
     /* Custom medical colors */
     --medical-blue: 210 85% 45%;
-    --medical-light-blue: 210 80% 95%;
+    --medical-light-blue: 0 0% 100%;
     --medical-teal: 185 70% 42%;
     --medical-navy: 215 50% 20%;
-    --medical-soft-gray: 210 15% 97%;
+    --medical-soft-gray: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
@@ -103,7 +103,12 @@
     font-family: 'Inter', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 }
@@ -159,6 +164,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -169,6 +175,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -179,6 +186,7 @@
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);

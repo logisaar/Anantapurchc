@@ -15,13 +15,13 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-lg font-heading font-bold text-primary-foreground">
-                  Anantapur Hospital
+                 LogiSaar
                 </h3>
-                <p className="text-xs text-muted-foreground">Community Health Center</p>
+                <p className="text-xs text-muted-foreground">Web Development Agency</p>
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Dedicated to providing quality healthcare services to our community 
+              Dedicated to providing quality healthcare services to our community
               with compassion, integrity, and excellence.
             </p>
           </div>
@@ -83,15 +83,18 @@ const Footer = () => {
         <div className="mt-10 pt-6 border-t border-border/20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} Anantapur Hospital. All rights reserved.
+              © {currentYear} LogiSaar. All rights reserved.
             </p>
             <p className="text-muted-foreground text-sm flex items-center gap-1">
               Made with <Heart className="w-4 h-4 text-primary fill-primary" /> for our community
             </p>
+            <p className="text-muted-foreground text-sm">
+              Created by <a href="https://logisaar.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">LogiSaar</a>
+            </p>
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 

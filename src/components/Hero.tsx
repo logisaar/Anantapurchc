@@ -1,23 +1,89 @@
-import { Heart, Shield, Users } from "lucide-react";
+import { Heart, Shield, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const backgrounds = [
+    '/images/hero-full.png',
+    '/images/hero-2nd.png',
+    '/images/hero-3ed.png'
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % backgrounds.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % backgrounds.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + backgrounds.length) % backgrounds.length);
+  };
+
   return (
-    <section id="home" className="relative gradient-medical-soft overflow-hidden">
-      <div className="container-medical section-padding">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Slider */}
+      {backgrounds.map((bg, index) => (
+        <div
+          key={bg}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          style={{ backgroundImage: `url('${bg}')` }}
+        />
+      ))}
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
+
+      {/* Navigation Controls */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 transition-all hidden md:flex"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 transition-all hidden md:flex"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      {/* Slider Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {backgrounds.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all ${index === currentSlide ? "bg-white w-6" : "bg-white/50 hover:bg-white/80"
+              }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      <div className="container-medical relative z-10 py-20 md:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Heart className="w-4 h-4" />
+          <div className="animate-fade-in-up text-white">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
+              <Heart className="w-4 h-4 text-primary-foreground" />
               <span>Your Health, Our Priority</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
               Quality Healthcare
-              <span className="block text-gradient-medical">For Everyone</span>
+              <span className="block text-primary-foreground">For Everyone</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+            <p className="text-lg text-gray-200 mb-8 max-w-lg">
               Anantapur Hospital provides comprehensive medical services with
               compassion and excellence. Our dedicated team is committed to
               delivering the best healthcare experience.
@@ -26,80 +92,67 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#departments"
-                className="inline-flex items-center gap-2 px-6 py-3 gradient-medical text-primary-foreground font-semibold rounded-lg shadow-medical hover:shadow-medical-lg transition-all hover-lift"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all hover-lift border border-transparent"
               >
                 Our Services
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-card border-2 border-primary/20 text-primary font-semibold rounded-lg hover:border-primary/40 hover:bg-primary/5 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white font-semibold rounded-lg hover:bg-white/20 transition-all"
               >
                 Contact Us
               </a>
             </div>
           </div>
 
-          {/* Right content - Stats & Logos */}
-          <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            {/* Logos Section */}
-            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-medical-lg border border-primary/10 hover-lift text-center">
-              <p className="text-sm font-semibold text-primary mb-6 uppercase tracking-wider">Supported By</p>
-              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-                <img
-                  src="/images/nhm-logo.png"
-                  alt="National Health Mission"
-                  className="h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
-                />
-                <div className="h-16 w-px bg-border hidden md:block"></div>
-                <img
-                  src="/images/odisha-logo.png"
-                  alt="Government of Odisha"
-                  className="h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
-                />
+          {/* Right content - Stats & Logos (Simplified for full bg) */}
+          <div className="hidden lg:block space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            {/* Floating Stats Card */}
+            <div className="ml-auto content-end max-w-sm">
+              <div className="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-medical-lg border border-white/20 hover-lift">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-gray-800">Trusted Excellence</p>
+                    <p className="text-xs text-gray-500">Certified Healthcare</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-sm border-b border-gray-100 pb-2">
+                    <span className="text-gray-600">Doctors</span>
+                    <span className="font-bold text-primary">50+</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm border-b border-gray-100 pb-2">
+                    <span className="text-gray-600">Departments</span>
+                    <span className="font-bold text-primary">12+</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-600">Experience</span>
+                    <span className="font-bold text-primary">25+ Years</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Hero Image Section */}
-            <div className="relative mx-auto max-w-md lg:max-w-full">
-              <div className="relative rounded-2xl overflow-hidden shadow-medical-lg hover-lift group">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
-                <img
-                  src="/images/hero-main.jpeg"
-                  alt="Anantapur Hospital Building"
-                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Floating Stats - Bottom Left */}
-                <div className="absolute bottom-4 left-4 z-20">
-                  <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20 flex items-center gap-3 animate-fade-in-up">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Heart className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-primary uppercase tracking-wider">Emergency</p>
-                      <p className="text-sm font-bold text-foreground">24/7 Care Available</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Stats - Top Right - Optional decorative badge */}
-                <div className="absolute top-4 right-4 z-20">
-                  <div className="bg-accent/90 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-lg border border-white/20 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                    <div className="flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-white" />
-                      <span className="text-xs font-bold text-white">Trusted Care</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Logos Section - smaller/compact */}
+            <div className="ml-auto w-fit bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-white/10 flex gap-6 items-center">
+              <img
+                src="/images/nhm-logo.png"
+                alt="National Health Mission"
+                className="h-12 w-auto object-contain opacity-90"
+              />
+              <div className="h-8 w-px bg-gray-300"></div>
+              <img
+                src="/images/odisha-logo.png"
+                alt="Government of Odisha"
+                className="h-12 w-auto object-contain opacity-90"
+              />
             </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10" />
     </section>
   );
 };

@@ -10,13 +10,14 @@ const Header = () => {
     { href: "/services", label: "Services" },
     { href: "/gallery", label: "Gallery" },
     { href: "/inquiry", label: "Inquiry" },
+    { href: "/waste-management", label: "Waste Management" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <header className="sticky top-0 z-50 bg-medical-navy text-white shadow-md border-b border-white/10">
       {/* Top bar */}
-      <div className="bg-primary text-primary-foreground">
+      <div className="bg-black/20 text-white/90">
         <div className="container-medical py-2 flex flex-wrap justify-center md:justify-between items-center gap-2 text-sm">
           <div className="flex items-center gap-4 md:gap-6">
             <a
@@ -41,38 +42,30 @@ const Header = () => {
       {/* Main header */}
       <div className="container-medical py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-12 h-12 rounded-xl gradient-medical flex items-center justify-center shadow-medical group-hover:shadow-medical-lg transition-shadow">
-                <Cross className="w-6 h-6 text-primary-foreground" strokeWidth={2.5} />
-              </div>
-            </div>
-            <div>
-              <h1 className="text-xl md:text-2xl font-heading font-bold text-foreground">
-                Anantapur Hospital
-              </h1>
-              <p className="text-xs text-muted-foreground">Community Health Center</p>
-            </div>
-          </a>
+          {/* Logo Removed as per user request */}
+          {/* Mobile Hospital Name */}
+          <div className="text-xl font-heading font-bold text-primary-foreground md:hidden">
+            Anantapur Hospital
+          </div>
+          <div className="hidden md:block"></div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 mx-auto">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
+                className="text-white/80 hover:text-white font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-all hover:after:w-full"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Pushed to right */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 text-white transition-colors ml-auto"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -81,14 +74,14 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
+          <nav className="md:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in text-center">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-muted-foreground hover:text-primary font-medium transition-colors py-2"
+                  className="text-white/80 hover:text-white font-medium transition-colors py-2"
                 >
                   {link.label}
                 </a>

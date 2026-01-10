@@ -15,21 +15,25 @@ const MedicalOfficer = () => {
             </h2>
           </div>
 
-          <div className="medical-card-highlight p-8 md:p-10 text-center animate-scale-in">
-            <div className="w-24 h-24 rounded-full gradient-medical flex items-center justify-center mx-auto mb-6 shadow-medical">
-              <Award className="w-12 h-12 text-primary-foreground" />
+          <div className="medical-card-highlight p-8 md:p-10 text-center animate-scale-in transition-all duration-500 hover:-translate-y-2 hover:shadow-medical-lg group cursor-default">
+            <div className="w-32 h-32 rounded-full border-4 border-primary/20 mx-auto mb-6 shadow-medical overflow-hidden">
+              <img
+                src="/images/doc.png"
+                alt="Dr. Satya Swarup Singh"
+                className="w-full h-full object-cover"
+              />
             </div>
-            
+
             <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">
               Dr. Satya Swarup Singh
             </h3>
-            
+
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
               MBBS
             </div>
-            
+
             <p className="text-muted-foreground max-w-md mx-auto">
-              Leading our dedicated medical team with expertise and compassion, 
+              Leading our dedicated medical team with expertise and compassion,
               ensuring the highest standards of patient care at Anantapur Hospital.
             </p>
 
