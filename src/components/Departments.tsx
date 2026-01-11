@@ -7,7 +7,12 @@ import {
   Pill,
   Eye,
   Syringe,
-  HeartPulse
+  HeartPulse,
+  Bone,
+  UserCheck,
+  Sparkles,
+  Trash2,
+  ShieldCheck
 } from "lucide-react";
 
 const departments = [
@@ -17,6 +22,7 @@ const departments = [
     icon: Bed,
     description: "Comprehensive inpatient care with comfortable facilities",
     image: "/images/gallery/ipd.jpeg",
+    staff: [],
   },
   {
     name: "OPD",
@@ -24,6 +30,7 @@ const departments = [
     icon: ClipboardList,
     description: "Walk-in consultations and follow-up care",
     image: "/images/opt.avif",
+    staff: [],
   },
   {
     name: "Obstetrics & Gynaecology",
@@ -31,6 +38,15 @@ const departments = [
     icon: Baby,
     description: "Complete maternal and women's healthcare services",
     image: "/images/Obstetrics & Gynaecology.webp",
+    staff: ["Dr. Sumanta Kumar Dhada"],
+  },
+  {
+    name: "Orthopedic",
+    fullName: "Bone & Joint Care",
+    icon: Bone,
+    description: "Specialized treatment for bone and joint disorders",
+    image: null,
+    staff: ["Dr. Rajat Kumar Das (MBBS)"],
   },
   {
     name: "Dental",
@@ -38,6 +54,7 @@ const departments = [
     icon: SmilePlus,
     description: "Comprehensive dental treatments and oral health",
     image: "/images/gallery/Dental.jpeg",
+    staff: ["Dr. Bisakha Nayak"],
   },
   {
     name: "Pathology",
@@ -45,6 +62,7 @@ const departments = [
     icon: Microscope,
     description: "Accurate diagnostic testing and analysis",
     image: "/images/gallery/patho.jpeg",
+    staff: ["MLT Sadasiva Nath"],
   },
   {
     name: "Pharmacy",
@@ -52,6 +70,7 @@ const departments = [
     icon: Pill,
     description: "Essential medicines and pharmaceutical care",
     image: "/images/Pharmacy.avif",
+    staff: ["Jay Jagdish Kar", "Pravat Behera"],
   },
   {
     name: "Eye",
@@ -59,6 +78,7 @@ const departments = [
     icon: Eye,
     description: "Vision care and eye health treatments",
     image: "/images/Eye.jpg",
+    staff: ["Avay Ku Das"],
   },
   {
     name: "ILR Vaccination",
@@ -66,6 +86,7 @@ const departments = [
     icon: Syringe,
     description: "Vaccination programs and immunization services",
     image: "/images/ILR Vaccination.jpg",
+    staff: [],
   },
   {
     name: "Nursing Station",
@@ -73,6 +94,39 @@ const departments = [
     icon: HeartPulse,
     description: "Round-the-clock nursing care and support",
     image: "/images/Nursing Station.jpg",
+    staff: ["Puspalata Panda", "Pasmini Mohapatra"],
+  },
+  {
+    name: "Attendant",
+    fullName: "Patient Support",
+    icon: UserCheck,
+    description: "Dedicated attendant services for patient care",
+    image: null,
+    staff: ["Manas Ranjan Mohapatra"],
+  },
+  {
+    name: "Housekeeping",
+    fullName: "Facility Maintenance",
+    icon: Sparkles,
+    description: "Maintaining clean and hygienic healthcare environment",
+    image: null,
+    staff: ["Amulya Sethi"],
+  },
+  {
+    name: "BMW",
+    fullName: "Biomedical Waste Management",
+    icon: Trash2,
+    description: "Safe disposal and management of biomedical waste",
+    image: null,
+    staff: ["Sukanti Gochayat"],
+  },
+  {
+    name: "Security",
+    fullName: "Safety & Protection",
+    icon: ShieldCheck,
+    description: "24/7 security services ensuring patient and staff safety",
+    image: null,
+    staff: ["Shashikant Jena"],
   },
 ];
 
@@ -140,9 +194,25 @@ const Departments = () => {
                     <p className="text-xs text-primary font-medium mb-2">{dept.fullName}</p>
                   )}
 
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mb-3">
                     {dept.description}
                   </p>
+
+                  {dept.staff && dept.staff.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-border">
+                      <p className="text-xs font-semibold text-foreground mb-2">Staff Members:</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {dept.staff.map((member, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center px-2 py-1 rounded-md bg-primary/10 text-primary text-xs font-medium"
+                          >
+                            {member}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             );

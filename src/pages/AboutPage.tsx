@@ -7,7 +7,7 @@ const doctors = [
     { name: "Dr. Sumanta Kumar Dhada", specialty: "Gynecologist" },
     { name: "Dr. Tanmay Kumar Acharya", specialty: "Pediatrician" },
     { name: "Dr. Biskha Nayak", specialty: "Dentist" },
-    { name: "Dr. Rajat Kumar Das", specialty: "Orthopedic", image: "/images/dr-rajat-kumar-das.png" },
+    { name: "Dr. Rajat Kumar Das", specialty: "", image: "/images/dr-rajat-kumar-das.png" },
     { name: "Dr. Soumya Ranjan Behera", specialty: "General Doctor", image: "/images/dr-soumya-ranjan-behera.jpg" },
 ];
 
@@ -52,7 +52,14 @@ const AboutPage = () => {
                                         </div>
                                     )}
                                     <h3 className="text-lg font-bold text-foreground mb-1">{doc.name}</h3>
-                                    <p className="text-sm text-primary font-medium">{doc.specialty}</p>
+                                    {doc.specialty && (
+                                        <p className="text-sm text-primary font-medium mb-2">{doc.specialty}</p>
+                                    )}
+                                    {doc.name === "Dr. Rajat Kumar Das" && (
+                                        <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+                                            MBBS
+                                        </span>
+                                    )}
                                 </div>
                             ))}
                         </div>
