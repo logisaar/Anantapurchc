@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { FileText, Download, TrendingUp, AlertTriangle, ShieldCheck, Syringe, Trash2 } from "lucide-react";
+import { TrendingUp, AlertTriangle, ShieldCheck, Syringe, Trash2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const WasteManagement = () => {
@@ -52,13 +52,6 @@ const WasteManagement = () => {
         }
     ];
 
-    const reports = [
-        { title: "Annual Report of BMW-2024", date: "2024" },
-        { title: "Annual Report of BMW-2023", date: "2023" },
-        { title: "Authorisation Order of CHC SORO 2024", date: "2024" },
-        { title: "Annual Report of BMW-2022", date: "2022" },
-        { title: "Authorisation Order of CHC SORO 2019", date: "2019" },
-    ];
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
@@ -121,26 +114,6 @@ const WasteManagement = () => {
                         </div>
                     </section>
 
-                    {/* Reports Section */}
-                    <section>
-                        <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-foreground">Annual Reports & Orders</h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {reports.map((report, index) => (
-                                <div key={index} className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-primary/50 transition-colors group cursor-pointer">
-                                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                        <FileText className="w-6 h-6" />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                                            {report.title}
-                                        </h3>
-                                        <span className="text-xs text-muted-foreground">Published: {report.date}</span>
-                                    </div>
-                                    <Download className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                                </div>
-                            ))}
-                        </div>
-                    </section>
                 </div>
             </main>
             <Footer />

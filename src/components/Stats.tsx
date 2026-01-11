@@ -87,7 +87,7 @@ const Stats = () => {
     const stats = [
         { icon: Users, value: 6, label: "Doctors", suffix: "" },
         { icon: Heart, value: 1850, label: "Happy Customers" },
-        { icon: Shield, value: 87, label: "Years of Experience" },
+        { icon: Shield, value: 48, label: "Years of Experience" },
         { icon: Award, value: 10, label: "Awards Won" },
     ];
 

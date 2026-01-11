@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   const backgrounds = [
+    '/images/hero-3ed.png',
     '/images/hero-full.png',
-    '/images/hero-2nd.png',
-    '/images/hero-3ed.png'
+    '/images/hero-2nd.png'
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
