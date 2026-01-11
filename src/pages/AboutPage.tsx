@@ -39,11 +39,11 @@ const AboutPage = () => {
                             {doctors.map((doc, index) => (
                                 <div key={index} className="medical-card p-6 text-center hover-lift group bg-background">
                                     {doc.image ? (
-                                        <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-primary/20 group-hover:border-primary transition-all duration-300">
+                                        <div className="w-32 h-32 rounded-2xl overflow-hidden mx-auto mb-4 border-4 border-primary/20 group-hover:border-primary transition-all duration-300 bg-white">
                                             <img
                                                 src={doc.image}
                                                 alt={doc.name}
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-cover object-top"
                                             />
                                         </div>
                                     ) : (

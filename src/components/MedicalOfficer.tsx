@@ -16,11 +16,11 @@ const MedicalOfficer = () => {
           </div>
 
           <div className="medical-card-highlight p-8 md:p-10 text-center animate-scale-in transition-all duration-500 hover:-translate-y-2 hover:shadow-medical-lg group cursor-default">
-            <div className="w-32 h-32 rounded-full border-4 border-primary/20 mx-auto mb-6 shadow-medical overflow-hidden">
+            <div className="w-40 h-40 rounded-full border-4 border-primary/20 mx-auto mb-6 shadow-medical overflow-hidden bg-white">
               <img
-                src="/images/doc.png"
+                src="/images/dr-satya-swarup-singh.jpg"
                 alt="Dr. Satya Swarup Singh"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
 
