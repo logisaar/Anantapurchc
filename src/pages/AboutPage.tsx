@@ -19,10 +19,10 @@ const AboutPage = () => {
                 <div className="bg-primary/5 py-12 md:py-20">
                     <div className="container-medical text-center">
                         <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4 animate-fade-in-up">
-                            About Us
+                            Our Doctors
                         </h1>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                            Learn more about our mission, leadership, and commitment to community health.
+                            Meet our dedicated medical professionals committed to providing exceptional healthcare services.
                         </p>
                     </div>
                 </div>
