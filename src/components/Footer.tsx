@@ -10,14 +10,16 @@ const Footer = () => {
           {/* Hospital Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                <Cross className="w-5 h-5 text-primary" />
-              </div>
+              <img
+                src="/images/anantapur-chc-logo.jpg"
+                alt="Anantapur CHC"
+                className="h-14 w-14 object-contain rounded-lg"
+              />
               <div>
                 <h3 className="text-lg font-heading font-bold text-primary-foreground">
-                 LogiSaar
+                  Anantapur CHC
                 </h3>
-                <p className="text-xs text-muted-foreground">Web Development Agency</p>
+                <p className="text-xs text-muted-foreground">Community Health Center</p>
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">

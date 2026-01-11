@@ -42,12 +42,20 @@ const Header = () => {
       {/* Main header */}
       <div className="container-medical py-4">
         <div className="flex items-center justify-between">
-          {/* Logo Removed as per user request */}
-          {/* Mobile Hospital Name */}
-          <div className="text-xl font-heading font-bold text-primary-foreground md:hidden">
-            Anantapur Hospital
-          </div>
-          <div className="hidden md:block"></div>
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-3">
+            <img
+              src="/images/anantapur-chc-logo.jpg"
+              alt="Anantapur CHC"
+              className="h-12 w-12 object-contain"
+            />
+            <div className="hidden md:block">
+              <h1 className="text-xl font-heading font-bold text-primary-foreground leading-tight">
+                Anantapur CHC
+              </h1>
+              <p className="text-xs text-white/80">Community Health Center</p>
+            </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 mx-auto">
