@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TrendingUp, AlertTriangle, ShieldCheck, Syringe, Trash2 } from "lucide-react";
+import { TrendingUp, AlertTriangle, ShieldCheck, Syringe, Trash2, FileText, Download } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const WasteManagement = () => {
     const wasteCategories = [
@@ -108,6 +109,71 @@ const WasteManagement = () => {
                                                 <li key={idx}>{item}</li>
                                             ))}
                                         </ul>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Annual BMW Reports Section */}
+                    <section className="mb-16">
+                        <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-foreground flex items-center gap-2">
+                            <FileText className="w-8 h-8 text-primary" />
+                            Annual BMW Reports
+                        </h2>
+                        <p className="text-muted-foreground mb-8">
+                            Download and view our comprehensive Biomedical Waste Management annual reports. These documents detail our waste management practices, compliance records, and environmental commitments.
+                        </p>
+                        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            {[
+                                { year: 2025, file: "BMW REPORT 2025.pdf" },
+                                { year: 2024, file: "BMW REPORT 2024.pdf" },
+                                { year: 2023, file: "BMW ANUAL REPORT 2023.pdf" },
+                                { year: 2022, file: "BMW ANUAL REPORT 2022.pdf" },
+                                { year: 2021, file: "BMW ANUAL REPORT 2021.pdf" },
+                                { year: 2020, file: "BMW ANUAL REPORT 2020.pdf" },
+                                { year: 2019, file: "BMW ANUAL REPORT 2019.pdf" },
+                            ].map((report) => (
+                                <Card key={report.year} className="border shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
+                                    <CardHeader className="pb-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-t-lg">
+                                        <div className="flex justify-between items-center">
+                                            <CardTitle className="text-lg font-bold text-primary">{report.year}</CardTitle>
+                                            <FileText className="w-6 h-6 text-primary/60 group-hover:text-primary transition-colors" />
+                                        </div>
+                                    </CardHeader>
+                                    <CardContent className="pt-4">
+                                        <p className="text-sm text-muted-foreground mb-4">
+                                            BMW Annual Report
+                                        </p>
+                                        <div className="flex gap-2">
+                                            <Button
+                                                asChild
+                                                size="sm"
+                                                className="flex-1"
+                                            >
+                                                <a
+                                                    href={`/doc/${report.file}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    View
+                                                </a>
+                                            </Button>
+                                            <Button
+                                                asChild
+                                                size="sm"
+                                                variant="outline"
+                                                className="flex-1"
+                                            >
+                                                <a
+                                                    href={`/doc/${report.file}`}
+                                                    download
+                                                >
+                                                    <Download className="w-4 h-4 mr-1" />
+                                                    Download
+                                                </a>
+                                            </Button>
+                                        </div>
                                     </CardContent>
                                 </Card>
                             ))}
